@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年会抽奖幸运星</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="startSound" src="https://raw.githubusercontent.com/cursor-ai/cursor/main/examples/lottery-sounds/start.mp3"></audio>
+    <audio id="winSound" src="https://raw.githubusercontent.com/cursor-ai/cursor/main/examples/lottery-sounds/win.mp3"></audio>
+
+    <div class="container">
+        <div class="header">
+            <h1>年会抽奖幸运星</h1>
+            <div class="datetime" id="datetime">2024年1月1日 00:00:00</div>
+        </div>
+
+        <div class="main-content">
+            <div class="setup-panel">
+                <div class="stats-section">
+                    <div class="stat-item">
+                        <div class="stat-label">参与人数</div>
+                        <div class="stat-value" id="totalCount">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">已中奖</div>
+                        <div class="stat-value" id="winnerCount">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">剩余人数</div>
+                        <div class="stat-value" id="remainingCount">0</div>
+                    </div>
+                </div>
+
+                <div class="setup-section">
+                    <div class="section-title">参与名单</div>
+                    <div class="input-methods">
+                        <input type="file" id="nameList" accept=".txt,.csv">
+                        <textarea id="nameInput" placeholder="请输入参与者名单，每行一个名字"></textarea>
+                        <button id="confirmNames" class="primary-btn">确认名单</button>
+                    </div>
+
+                    <div class="section-title">奖项设置</div>
+                    <div class="prize-inputs">
+                        <div class="prize-input">
+                            <input type="text" placeholder="奖项名称" class="prize-name">
+                            <input type="number" placeholder="人数" min="1" class="prize-count">
+                            <button class="add-prize">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lottery-section">
+                <div class="lottery-area">
+                    <div class="section-title">抽奖区域</div>
+                    <div id="nameDisplay">准备开始</div>
+                    <div class="controls">
+                        <button id="startBtn" class="primary-btn">开始抽奖</button>
+                        <button id="stopBtn" class="primary-btn" disabled>停止</button>
+                    </div>
+                </div>
+                <div class="result-area">
+                    <div class="section-title">中奖名单</div>
+                    <div id="resultList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
